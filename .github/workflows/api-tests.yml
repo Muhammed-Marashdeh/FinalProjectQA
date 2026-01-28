@@ -9,7 +9,7 @@ on:
 jobs:
   run-api-tests:
     # must match the label(s) you assigned when registering the runner
-    runs-on: [self-hosted, wsl, linux]
+    runs-on: self-hosted
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
