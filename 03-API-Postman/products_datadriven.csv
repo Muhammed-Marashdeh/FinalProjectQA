@@ -1,0 +1,10 @@
+productId,productName,expectedStatus
+1,Essence Mascara Lash Parlor Effects,200
+2,Eyeshadow Palette with Earth Tones,200
+3,Powder Compact with Mirrors,200
+5,Spring Mascara,200
+10,Vintage Wooden Toy Train,200
+15,Wireless Bluetooth Headphones,200
+999999,NonExistentProduct,404
+0,InvalidID,404
+-1,NegativeID,404

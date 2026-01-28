@@ -1,0 +1,2 @@
+Run script:
+	newman run FinalProjectApiTest.json -e DummyJson.postman_environment.json -d products_datadriven.csv -r htmlextra --reporter-htmlextra-export newman-report.html
