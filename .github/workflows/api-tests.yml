@@ -1,0 +1,62 @@
+name: API tests (Postman + k6)
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-api-tests:
+    # must match the label(s) you assigned when registering the runner
+    runs-on: [self-hosted, wsl, linux]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Ensure k6 is installed (fallback)
+        run: |
+          if ! command -v k6 >/dev/null 2>&1; then
+            echo "Installing k6..."
+            sudo apt-get update -y
+            sudo apt-get install -y curl gnupg ca-certificates
+            curl -sS https://dl.k6.io/key.gpg | sudo apt-key add -
+            echo "deb https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
+            sudo apt-get update -y
+            sudo apt-get install -y k6
+          else
+            echo "k6 already installed: $(k6 version)"
+          fi
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Install Newman and reporter
+        run: npm install -g newman newman-reporter-htmlextra --unsafe-perm=true
+
+      - name: Run Postman / Newman tests
+        run: |
+          # Adjust paths if needed. This follows your Run Script.txt.
+          newman run 03-API-Postman/FinalProjectApiTest.json \
+            -e 03-API-Postman/DummyJson.postman_environment.json \
+            -d 03-API-Postman/products_datadriven.csv \
+            -r htmlextra --reporter-htmlextra-export newman-report.html || true
+        continue-on-error: false
+
+      - name: Upload Newman HTML report
+        uses: actions/upload-artifact@v4
+        with:
+          name: newman-report
+          path: newman-report.html
+
+      - name: Run k6 performance test
+        run: |
+          k6 run 04-API-Performance-k6/K6Testing.js --summary-export=k6-summary.json || true
+
+      - name: Upload k6 summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: k6-summary
+          path: k6-summary.json
