@@ -178,7 +178,7 @@ npm install -g newman-reporter-htmlextra
 ✅ Output:
 
 03-API-Postman/newman-report.html
-
+---
 2) Run API Performance Tests (k6)
 
 Go to:
@@ -189,7 +189,7 @@ Go to:
 Run:
 
 k6 run K6Testing.js
-
+---
 3) Run UI Automation Tests
 
 Go to:
@@ -200,7 +200,7 @@ Go to:
 Follow the instructions inside:
 
 05-UI-Automation/README.md
-
+---
 Reporting & Evidence
 
 All evidence is included in the repository and referenced in the final report:
@@ -216,7 +216,7 @@ k6 results: 04-API-Performance-k6/
 Final report: 06-Report/
 
 Presentation: 07-Presentation/
-
+---
 Key Takeaways
 
 Applied a layered QA strategy (planning → manual → API automation → performance → UI automation)
@@ -228,7 +228,7 @@ Generated readable automation reporting via Newman HTML reports
 Integrated CI workflows using GitHub Actions
 
 Followed real-world QA structure and best practices
-
+---
 Author
 
 Muhammed-Marashdeh
