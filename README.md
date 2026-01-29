@@ -26,14 +26,23 @@ The goal of this project is not only to test functionality, but to apply **indus
 
 ## Project Structure
 FinalProjectQA/
+
 │
+
 ├── .github/workflows/
+
 ├── 01-Planning/
+
 ├── 02-Manual-Testing/
+
 ├── 03-API-Postman/
+
 ├── 04-API-Performance-k6/
+
 ├── 05-UI-Automation/
+
 ├── 06-Report/
+
 └── 07-Presentation/
 
 
