@@ -237,10 +237,12 @@ Generated readable automation reporting via Newman HTML reports
 Integrated CI workflows using GitHub Actions
 
 Followed real-world QA structure and best practices
----
-Author
 
+Author
+---
 Muhammed-Marashdeh
+
 HTU – ICT Upskilling Program
+
 Software Testing & Quality Assurance Track
 ---
