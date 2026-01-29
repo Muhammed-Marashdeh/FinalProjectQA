@@ -198,9 +198,9 @@ Go to:
 Run:
 
 k6 run K6Testing.js
----
-3) Run UI Automation Tests
 
+3) Run UI Automation Tests
+---
 Go to:
 
 05-UI-Automation/
