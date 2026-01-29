@@ -55,6 +55,7 @@ jobs:
         run: |
           k6 run 04-API-Performance-k6/K6Testing.js --summary-export=k6-summary.json || true
 
+
       - name: Upload k6 summary
         uses: actions/upload-artifact@v4
         with:
